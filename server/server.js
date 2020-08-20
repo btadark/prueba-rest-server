@@ -1,7 +1,6 @@
 require('./config/config');
 const db =require('./config/db');
 const express = require('express');
-const mongoose = require('mongoose');
 
 const app = express();
 db();
@@ -16,7 +15,9 @@ app.use(bodyParser.json());
 const port = process.env.PORT || 4000
 
 //app.use(express.json({ extend: true }));
-app.use( require('./routes/usuario') );
+
+// Configuracion de las rutas
+app.use( require('./routes/index'));
 
 
 app.listen(port, () => {
